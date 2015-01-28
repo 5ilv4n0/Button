@@ -95,7 +95,9 @@ while True:
 
 
     h, m, s= os.popen('date +:%H:%M:%S:').read().split(':')[1:-1]
-    h = int(h)
+    h = int(h+1)
+    if h>32:
+        h=0
     m = int(m)
     s = int(s)
     if h > 11:
@@ -103,11 +105,28 @@ while True:
 
     m = m / 5
     if m > 11:
-        m = 0   
+        m = 0
 
     s = s / 5
     if s > 11:
-        s = 0 
+        s = 0
+
+
+    h -= 6
+    m -= 6
+    s -= 6
+
+    if h <0:
+        h = 12+h
+
+    if m <0:
+        m = 12+m
+
+
+    if s <0:
+        s = 12+s
+    print h,m,s
+
 
 
     if s == h:
@@ -129,7 +148,7 @@ while True:
         if not m == s:
             button[m] = {'red':0,'green':16,'blue':0}
 
-    
+
 
     button.update()
     time.sleep(1)
