@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import serial, os, time, sys
 
-from xbmcjson import XBMC, PLAYER_VIDEO
+#from xbmcjson import XBMC, PLAYER_VIDEO
 
 class Button(dict):
     def __init__(self):
@@ -88,11 +88,53 @@ button.update()
 
 
 
-
+import os
 
 while True:
-    for i in range(12):
-        button.clear((192,0,0))
-        button[i]['red'] = 0
-        button.update()
-        time.sleep(0.10)
+    button.clear()
+
+
+    h, m, s= os.popen('date +:%H:%M:%S:').read().split(':')[1:-1]
+    h = int(h)
+    m = int(m)
+    s = int(s)
+    if h > 11:
+        h -= 12
+
+    m = m / 5
+    if m > 11:
+        m = 0   
+
+    s = s / 5
+    if s > 11:
+        s = 0 
+
+
+    if s == h:
+        button[s] = {'red':150,'green':0,'blue':20}
+    else:
+        button[s] = {'red':0,'green':0,'blue':20}
+
+    if s == m:
+        button[s] = {'red':0,'green':16,'blue':20}
+
+
+    if h == m:
+        color = {'red':20,'green':20,'blue':20}
+        button[h] = color
+    else:
+        if not h == s:
+            button[h] = {'red':150,'green':0,'blue':0}
+
+        if not m == s:
+            button[m] = {'red':0,'green':16,'blue':0}
+
+    
+
+    button.update()
+    time.sleep(1)
+    #for i in range(12):
+     #   button.clear((192,0,0))
+      #  button[i]['red'] = 0
+       # button.update()
+        #time.sleep(0.10)
