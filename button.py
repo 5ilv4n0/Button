@@ -95,7 +95,7 @@ while True:
 
 
     h, m, s= os.popen('date +:%H:%M:%S:').read().split(':')[1:-1]
-    h = int(h+1)
+    h = int(h)+1
     if h>32:
         h=0
     m = int(m)
