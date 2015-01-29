@@ -4,6 +4,14 @@ import serial, os, time, sys
 
 #from xbmcjson import XBMC, PLAYER_VIDEO
 
+
+class LED(object):
+    def __init__(self, offset):
+        self.__offset = offset
+        self.__red = 0
+        self.__green = 0
+        self.__blue = 0
+
 class Button(dict):
     def __init__(self):
         dict.__init__(self)
@@ -116,31 +124,11 @@ button.clear()
 
 
 
-#while True:
-#    for i in range(101):
-#        button.percent(i,(128,128,128))
-#        button.update()
-    #time.sleep(0.75)
+while True:
+    for i in range(101):
+        button.percent(i,(128,128,128))
+        button.update()
+    time.sleep(0.75)
 
 button.clear()
 button.update()
-
-
-
-
-
-import os
-
-while True:
-
-
-
-
-
-    button.update()
-    time.sleep(1)
-    #for i in range(12):
-     #   button.clear((192,0,0))
-      #  button[i]['red'] = 0
-       # button.update()
-        #time.sleep(0.10)
