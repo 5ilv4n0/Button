@@ -138,8 +138,8 @@ button.clear()
 #            button.update()
 #    time.sleep(0.25)
 
-
-button.pulse()
+while True:
+    button.pulse()
 sys.exit()
 
 while True:
