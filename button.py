@@ -87,7 +87,11 @@ class Button(dict):
             for led in range(12):
                 self[led] = {'red':a,'green':a,'blue':a}
             button.update()
-
+        for alpha in range(32)[::-1]:
+            a = alpha * 8
+            for led in range(12):
+                self[led] = {'red':a,'green':a,'blue':a}
+            button.update()
     def update(self):
         data = ''
         data += chr(self[1]['red'])+chr(self[1]['blue'])+chr(self[1]['green'])
