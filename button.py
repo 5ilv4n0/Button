@@ -80,6 +80,14 @@ class Button(dict):
                 count += 1
         return
 
+
+    def pulse(self, color=(80,80,80)):
+        for alpha in range(32):
+            a = alpha * 8
+            for led in range(12):
+                self[led] = {'red':a,'green':a,'blue':a}
+            button.update()
+
     def update(self):
         data = ''
         data += chr(self[1]['red'])+chr(self[1]['blue'])+chr(self[1]['green'])
