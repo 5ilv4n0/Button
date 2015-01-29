@@ -10,6 +10,47 @@ class Button(dict):
         self.__device = serial.Serial('/dev/ttyACM0', 57600, timeout=1)
         self.clear()
 
+    def current_time(self):
+        self.clear()
+        h, m, s= os.popen('date +:%H:%M:%S:').read().split(':')[1:-1]
+        h = int(h)
+        if h>23:
+            h=0
+        m = int(m)
+        s = int(s)
+        if h > 11:
+            h -= 12
+        m = m / 5
+        if m > 11:
+            m = 0
+        s = s / 5
+        if s > 11:
+            s = 0
+        h -= 6
+        m -= 6
+        s -= 6
+        if h <0:
+            h = 12+h
+        if m <0:
+            m = 12+m
+        if s <0:
+            s = 12+s
+        if s == h:
+            self[s] = {'red':150,'green':0,'blue':20}
+        else:
+            self[s] = {'red':0,'green':0,'blue':20}
+        if s == m:
+            self[s] = {'red':0,'green':16,'blue':20}
+        if h == m:
+            color = {'red':20,'green':20,'blue':20}
+            self[h] = color
+        else:
+            if not h == s:
+                self[h] = {'red':150,'green':0,'blue':0}
+
+            if not m == s:
+                self[m] = {'red':0,'green':16,'blue':0}
+
     def percent(self, percent, color=(80,80,80)):
         self.clear()
         alpha = 1
@@ -23,7 +64,7 @@ class Button(dict):
                 g = int((i*8)*alpha*(color[1]/255.0))
                 b = int((i*8)*alpha*(color[2]/255.0))
                 #print (255/56)*r,(255/56)*g,(255/56)*b
-                button[led] = {'red':r,'green':g,'blue':b}
+                self[led] = {'red':r,'green':g,'blue':b}
                 count += 1
         return
 
@@ -91,62 +132,8 @@ button.update()
 import os
 
 while True:
-    button.clear()
 
 
-    h, m, s= os.popen('date +:%H:%M:%S:').read().split(':')[1:-1]
-    h = int(h)
-    if h>32:
-        h=0
-    m = int(m)
-    s = int(s)
-    if h > 11:
-        h -= 12
-
-    m = m / 5
-    if m > 11:
-        m = 0
-
-    s = s / 5
-    if s > 11:
-        s = 0
-
-
-    h -= 6
-    m -= 6
-    s -= 6
-
-    if h <0:
-        h = 12+h
-
-    if m <0:
-        m = 12+m
-
-
-    if s <0:
-        s = 12+s
-    print h,m,s
-
-
-
-    if s == h:
-        button[s] = {'red':150,'green':0,'blue':20}
-    else:
-        button[s] = {'red':0,'green':0,'blue':20}
-
-    if s == m:
-        button[s] = {'red':0,'green':16,'blue':20}
-
-
-    if h == m:
-        color = {'red':20,'green':20,'blue':20}
-        button[h] = color
-    else:
-        if not h == s:
-            button[h] = {'red':150,'green':0,'blue':0}
-
-        if not m == s:
-            button[m] = {'red':0,'green':16,'blue':0}
 
 
 
