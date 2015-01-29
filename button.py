@@ -135,6 +135,8 @@ button.clear()
 #    time.sleep(0.25)
 
 
+button.pulse()
+sys.exit()
 
 while True:
     for i in range(101):
