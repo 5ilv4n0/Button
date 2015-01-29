@@ -60,7 +60,7 @@ class Button(dict):
                 self[m] = {'red':0,'green':16,'blue':0}
 
     def percent(self, percent, color=(80,80,80)):
-        percent = int((87/100.0)*percent)
+        percent = int((100.0/87)*percent)
         print percent
         self.clear()
         alpha = 1
