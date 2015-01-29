@@ -61,6 +61,7 @@ class Button(dict):
 
     def percent(self, percent, color=(80,80,80)):
         percent = int((87/100.0)*percent)
+        print percent
         self.clear()
         alpha = 1
         count = 0
@@ -68,7 +69,7 @@ class Button(dict):
             for i in range(8):
                 if count == percent:
                     return
-                print count
+
                 r = int((i*8)*alpha*(color[0]/255.0))
                 g = int((i*8)*alpha*(color[1]/255.0))
                 b = int((i*8)*alpha*(color[2]/255.0))
