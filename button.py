@@ -63,11 +63,11 @@ class Button(dict):
         self.clear()
         alpha = 1
         count = 0
-        for led in range(12):
+        for led in range(1,12):
             for i in range(8):
                 if count == percent:
                     return
-
+                print count
                 r = int((i*8)*alpha*(color[0]/255.0))
                 g = int((i*8)*alpha*(color[1]/255.0))
                 b = int((i*8)*alpha*(color[2]/255.0))
