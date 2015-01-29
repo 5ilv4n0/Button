@@ -60,11 +60,11 @@ class Button(dict):
                 self[m] = {'red':0,'green':16,'blue':0}
 
     def percent(self, percent, color=(80,80,80)):
+        self.clear()
         self[0] = {'red':80,'green':80,'blue':0}
-        return 
         percent = int((87.0/100)*percent)
         print percent
-        self.clear()
+
         alpha = 1
         count = 0
         for led in range(1,12):
