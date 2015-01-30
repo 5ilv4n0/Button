@@ -84,7 +84,7 @@ class Button(dict):
         return
 
 
-    def percent_volume(self, percent, muted=False, color=(0,128,0), alpha=0.5, dot=True):
+    def percent_volume(self, percent, muted=False, color=(255,0,0), alpha=0.5, dot=True):
         self.clear()
         led_count=7
         led_start=0
@@ -111,7 +111,7 @@ class Button(dict):
 
                 if real_percent == 100:
                     self.clear()
-                    self[6] = {'red':255,'green':0,'blue':0}
+                    self[6] = {'red':255,'green':255,'blue':0}
                 elif real_percent == 0 or muted:
                     self[0] = {'red':255,'green':0,'blue':0}
                 if count == percent:
