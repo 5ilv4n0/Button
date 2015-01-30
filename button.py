@@ -161,6 +161,7 @@ class Kodi(XBMC):
 
     def get_volume(self):
         out = self.Application.GetProperties(properties=["volume","muted"])
+        print out
         return out['result']['volume']
 
 
