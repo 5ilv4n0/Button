@@ -59,7 +59,7 @@ class Button(dict):
             if not m == s:
                 self[m] = {'red':0,'green':16,'blue':0}
 
-    def percent_play(self, percent, color=(255,255,255), alpha=0.5, dot=False):
+    def percent_play(self, percent, color=(255,255,255), alpha=0.5, dot=True):
         self.clear()
         led_count=12
         led_start=0
@@ -67,6 +67,8 @@ class Button(dict):
             led_count=11
             led_start=1
             dot_color = {'red':int(255*alpha),'green':int(255*alpha),'blue':int(0*alpha)}
+            dot_color = {'red':int(0*alpha),'green':int(0*alpha),'blue':int(0*alpha)}
+
             self[0] = dot_color
         brightness = int(8*alpha)
         percent = int( ((led_count*brightness)/100.0)*percent  )
