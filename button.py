@@ -135,7 +135,7 @@ kodi = Kodi("http://localhost:8080/jsonrpc")
 while True:
     print kodi.get_volume()
 
-    time.sleep(0.25)
+    time.sleep(0.1)
 
 
 
