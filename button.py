@@ -191,7 +191,8 @@ while True:
 
 
 
-
+    if volume == 0:
+        button[0] = {'red':255,'green':0,'blue':0}
     button.update()
 
     time.sleep(0.1)
