@@ -131,11 +131,19 @@ button = Button()
 button.clear()
 
 kodi = Kodi("http://localhost:8080/jsonrpc")
-print kodi.get_volume()
+
+while True:
+    print kodi.get_volume()
+
+    time.sleep(0.25)
+
+
+
+
 
 #method":"Application.GetProperties","params":{"properties":["volume"]}, id": 1}
 
-print kodi.Application.GetProperties(properties=["volume"])
+#print kodi.Application.GetProperties(properties=["volume"])
 
 #print xbmc.Player.GetProperties(playerid=1, properties=["percentage"])
 
