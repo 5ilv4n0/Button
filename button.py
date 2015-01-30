@@ -163,7 +163,6 @@ class Kodi(XBMC):
 
     def get_volume(self):
         out = self.Application.GetProperties(properties=["volume","muted"])
-        print out
         return (out['result']['volume'], out['result']['muted'])
 
 
@@ -183,10 +182,10 @@ while True:
     if not volume == volume_mem:
         volume_mem = volume
         button.percent_volume(volume, muted)
-        button.update()
 
 
 
+    button.update()
     time.sleep(0.1)
 
 
