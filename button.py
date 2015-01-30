@@ -69,14 +69,14 @@ class Button(dict):
         count = 0
         for led in range(1,12):
             for i in range(8):
-                if count == percent:
-                    return
 
                 r = int((i*8)*(color[0]/255.0))
                 g = int((i*8)*(color[1]/255.0))
                 b = int((i*8)*(color[2]/255.0))
 
                 self[led] = {'red':r,'green':g,'blue':b}
+                if count == percent:
+                    return
                 count += 1
         return
 
@@ -135,8 +135,7 @@ kodi = Kodi("http://localhost:8080/jsonrpc")
 
 
 button.clear()
-button[0] = {'red':80,'green':80,'blue':0}
-button[1] = {'red':48,'green':48,'blue':48}
+button.percent(5)
 button.update()
 sys.exit()
 volume_mem = 0
