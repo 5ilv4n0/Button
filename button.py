@@ -178,14 +178,15 @@ while True:
 
     button.clear()
 
+    print kodi.Application.OnVolumeChanged()
 
     if not volume == volume_mem:
         volume_mem = volume
         button.percent_volume(volume, muted)
 
 
-
-    button.update()
+    if time.time() >= next_update_time:
+        button.update()
     time.sleep(0.1)
 
 
