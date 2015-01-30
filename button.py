@@ -110,6 +110,7 @@ class Button(dict):
 
 
                 if real_percent == 100:
+                    self.clear()
                     self[6] = {'red':255,'green':0,'blue':0}
                 elif real_percent == 0 or muted:
                     self[0] = {'red':255,'green':0,'blue':0}
