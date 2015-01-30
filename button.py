@@ -97,19 +97,18 @@ class Button(dict):
         real_percent = percent
         brightness = int(8*alpha)
         percent = int( ((led_count*brightness)/100.0)*percent  )
-
+        print real_percent
         count = 0
         for led in range(led_start,7):
-            for i in range(1,brightness):
+            for i in range(brightness):
                 r = int((i*8)*(color[0]/255.0))
                 g = int((i*8)*(color[1]/255.0))
                 b = int((i*8)*(color[2]/255.0))
-                self.clear()
                 self[led] = {'red':r,'green':g,'blue':b}
                 twin_led = (6-led)+6
                 self[twin_led] = {'red':r,'green':g,'blue':b}
 
-                print real_percent
+
                 if real_percent == 100:
                     self[6] = {'red':255,'green':0,'blue':0}
                 if count == percent:
