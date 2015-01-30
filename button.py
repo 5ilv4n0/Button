@@ -110,7 +110,7 @@ class Button(dict):
 
                 print real_percent
                 if real_percent == 100:
-                    self[6] = {'red':255,'green':255,'blue':255}
+                    self[6] = {'red':255,'green':0,'blue':0}
                 if count == percent:
                     return
                 count += 1
