@@ -75,6 +75,7 @@ class Button(dict):
                 b = int((i*8)*(color[2]/255.0))
 
                 self[led] = {'red':r,'green':g,'blue':b}
+                print {'red':r,'green':g,'blue':b}
                 if count == percent:
                     return
                 count += 1
