@@ -105,7 +105,9 @@ class Button(dict):
                 g = int((i*8)*(color[1]/255.0))
                 b = int((i*8)*(color[2]/255.0))
                 self[led] = {'red':r,'green':g,'blue':b}
-                print {'red':r,'green':g,'blue':b}
+
+                if percent == 100:
+                    self[7] = {'red':128,'green':0,'blue':0}
                 if count == percent:
                     return
                 count += 1
