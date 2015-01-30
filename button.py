@@ -89,7 +89,7 @@ class Button(dict):
         led_count=7
         led_start=0
         if dot:
-            led_count=7
+            led_count=6
             led_start=1
             dot_color = {'red':int(255*alpha),'green':int(255*alpha),'blue':int(0*alpha)}
             self[0] = dot_color
@@ -99,7 +99,7 @@ class Button(dict):
         percent = int( ((led_count*brightness)/100.0)*percent  )
 
         count = 0
-        for led in range(led_start,6):
+        for led in range(led_start,7):
             for i in range(brightness):
                 r = int((i*8)*(color[0]/255.0))
                 g = int((i*8)*(color[1]/255.0))
