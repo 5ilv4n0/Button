@@ -163,9 +163,9 @@ class Kodi(XBMC):
 
     def is_playing(self):
         try:
-            out = self.Player.GetActivePlayers()['result']['playerid']
+            out = self.Player.GetActivePlayers()
             print out
-            return out
+            return out['result']['playerid']
         except KeyError:
             return False
 
