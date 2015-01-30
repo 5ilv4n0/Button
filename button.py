@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import serial, os, time, sys
 
-#from xbmcjson import XBMC, PLAYER_VIDEO
+from xbmcjson import XBMC, PLAYER_VIDEO
 
 
 class LED(object):
