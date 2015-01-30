@@ -66,7 +66,8 @@ class Button(dict):
         if dot:
             led_count=11
             led_start=1
-            self[0] = {'red':255*alpha,'green':255*alpha,'blue':0*alpha}
+            dot_color = {'red':int(255*alpha),'green':int(255*alpha),'blue':int(0*alpha)}
+            self[0] = dot_color
         brightness = int(8*alpha)
         percent = int( ((led_count*brightness)/100.0)*percent  )
         count = 0
