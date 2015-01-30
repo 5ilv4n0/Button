@@ -138,7 +138,7 @@ while True:
     if not volume == volume_mem:
         button.percent(volume)
         button.update()
-        volume_mem = Volume
+        volume_mem = volume
 
     time.sleep(0.1)
 
