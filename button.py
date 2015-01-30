@@ -184,8 +184,8 @@ while True:
     button.clear()
     player_id = kodi.is_playing()
     if not player_id == None:
-        percent = int(kodi.Player.GetProperties(playerid=player_id, properties=["percentage"]))
-        print percent
+        percent = kodi.Player.GetProperties(playerid=player_id, properties=["percentage"])
+        percent = percent["result"]["percentage"]
         button.percent_play(percent)
 
     if not volume == volume_mem:
