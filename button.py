@@ -183,6 +183,7 @@ while True:
 
     button.clear()
     player_id = kodi.is_playing()
+    print player_id,
     if not player_id == False:
         percent = kodi.Player.GetProperties(playerid=player_id, properties=["percentage"])
         print percent
