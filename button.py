@@ -161,6 +161,13 @@ class Kodi(XBMC):
         out = self.Application.GetProperties(properties=["volume","muted"])
         return (out['result']['volume'], out['result']['muted'])
 
+    def is_playing(self):
+        try:
+            out = self.Player.GetActivePlayers()['result']['playerid']
+            return out
+        except KeyError:
+            return False
+
 
 button = Button()
 button.clear()
@@ -185,7 +192,7 @@ while True:
 
 
 
-    print kodi.Player.GetActivePlayers()
+    print kodi.is_playing()
 
     if volume == 0 or muted:
         button[0] = {'red':255,'green':0,'blue':0}
