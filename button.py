@@ -122,11 +122,16 @@ class Kodi(XBMC):
         XBMC.__init__(self, api_url)
 
 
+    def get_volume(self):
+        return self.Application.GetProperties(properties=["volume"])['result']['volume']
+
+
 
 button = Button()
 button.clear()
 
 kodi = Kodi("http://localhost:8080/jsonrpc")
+print kodi.get_volume()
 
 #method":"Application.GetProperties","params":{"properties":["volume"]}, id": 1}
 
