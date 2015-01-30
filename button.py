@@ -119,8 +119,14 @@ class Button(dict):
 button = Button()
 button.clear()
 
-#xbmc = XBMC("http://10.10.150.1:8080/jsonrpc")
+xbmc = XBMC("http://localhost:8080/jsonrpc")
+
+#method":"Application.GetProperties","params":{"properties":["volume"]}, id": 1}
+
+print xbmc.Application.GetProperties(properties=["volume"])
+
 #print xbmc.Player.GetProperties(playerid=1, properties=["percentage"])
+
 #while True:
 #    try:
 #        percent = int(xbmc.Player.GetProperties(playerid=0, properties=["percentage"])['result']['percentage'])
@@ -137,16 +143,3 @@ button.clear()
 #            button.clear((2,16,2))
 #            button.update()
 #    time.sleep(0.25)
-
-while True:
-    button.pulse()
-sys.exit()
-
-while True:
-    for i in range(101):
-        button.percent(i,(128,128,128))
-        button.update()
-    time.sleep(0.75)
-
-button.clear()
-button.update()
