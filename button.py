@@ -86,7 +86,7 @@ class Button(dict):
 
     def percent_volume(self, percent, color=(255,255,255), alpha=0.5, dot=True):
         self.clear()
-        led_count=12
+        led_count=6
         led_start=0
         if dot:
             led_count=11
