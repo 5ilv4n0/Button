@@ -77,7 +77,6 @@ class Button(dict):
                 g = int((i*8)*(color[1]/255.0))
                 b = int((i*8)*(color[2]/255.0))
                 self[led] = {'red':r,'green':g,'blue':b}
-                print {'red':r,'green':g,'blue':b}
                 if count == percent:
                     return
                 count += 1
@@ -97,7 +96,6 @@ class Button(dict):
         real_percent = percent
         brightness = int(8*alpha)
         percent = int( ((led_count*brightness)/100.0)*percent  )
-        print real_percent
         count = 0
         for led in range(led_start,7):
             for i in range(brightness):
@@ -107,8 +105,6 @@ class Button(dict):
                 self[led] = {'red':r,'green':g,'blue':b}
                 twin_led = (6-led)+6
                 self[twin_led] = {'red':r,'green':g,'blue':b}
-
-
                 if real_percent == 100:
                     self[6] = {'red':255,'green':255,'blue':0}
                 elif real_percent == 0 or muted:
@@ -189,7 +185,7 @@ while True:
 
 
 
-    print kodi.Player.isPlaying()
+    print kodi.Player.GetActivePlayers()
 
     if volume == 0 or muted:
         button[0] = {'red':255,'green':0,'blue':0}
