@@ -100,7 +100,7 @@ class Button(dict):
 
         count = 0
         for led in range(led_start,7):
-            for i in range(brightness):
+            for i in range(1,brightness):
                 r = int((i*8)*(color[0]/255.0))
                 g = int((i*8)*(color[1]/255.0))
                 b = int((i*8)*(color[2]/255.0))
