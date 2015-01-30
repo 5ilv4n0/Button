@@ -197,7 +197,7 @@ while True:
     button.update()
     if pressed_mem == True and pressed == False:
         pressed_mem == False
-        time.sleep(0.5)
+        time.sleep(2)
 
     time.sleep(0.1)
 
