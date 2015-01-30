@@ -162,7 +162,7 @@ class Kodi(XBMC):
     def get_volume(self):
         out = self.Application.GetProperties(properties=["volume","muted"])
         print out
-        return out['result']['volume']
+        return (out['result']['volume'], out['result']['muted'])
 
 
 button = Button()
@@ -173,9 +173,13 @@ kodi = Kodi("http://localhost:8080/jsonrpc")
 
 volume_mem = 0
 while True:
-    volume = kodi.get_volume()
+    volume, muted = kodi.get_volume()
+
+
     if not volume == volume_mem:
         button.percent_volume(volume)
+        if volume == 0 or muted:
+            button[0] = {'red':255,'green':0,'blue':0}
         button.update()
         volume_mem = volume
 
