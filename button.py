@@ -183,11 +183,8 @@ while True:
 
     if not volume == volume_mem:
         volume_mem = volume
-        pressed = True
-        pressed_mem = True
         button.percent_volume(volume, muted)
-    else:
-        pressed = False
+
 
 
 
@@ -195,9 +192,6 @@ while True:
 
 
     button.update()
-    if pressed_mem == True and pressed == False:
-        pressed_mem == False
-        time.sleep(2)
 
     time.sleep(0.1)
 
