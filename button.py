@@ -84,7 +84,7 @@ class Button(dict):
         return
 
 
-    def percent_volume(self, percent, muted=False, color=(255,0,0), alpha=0.5, dot=True):
+    def percent_volume(self, percent, muted=False, color=(128,128,0), alpha=0.5, dot=True):
         self.clear()
         led_count=7
         led_start=0
