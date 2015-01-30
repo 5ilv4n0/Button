@@ -184,7 +184,8 @@ while True:
     if not volume == volume_mem:
         volume_mem = volume
         button.percent_volume(volume, muted)
-
+    else:
+        button.percent_play(33)
 
 
 
