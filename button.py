@@ -105,6 +105,8 @@ class Button(dict):
                 g = int((i*8)*(color[1]/255.0))
                 b = int((i*8)*(color[2]/255.0))
                 self[led] = {'red':r,'green':g,'blue':b}
+                twin_led = (6-led)+6
+                self[twin_led] = {'red':r,'green':g,'blue':b}
 
                 print real_percent
                 if real_percent == 100:
