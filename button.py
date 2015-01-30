@@ -59,7 +59,7 @@ class Button(dict):
             if not m == s:
                 self[m] = {'red':0,'green':16,'blue':0}
 
-    def percent(self, percent, color=(255,0,128)):
+    def percent(self, percent, color=(255,0,0)):
         alpha = 0.5
         brightness = int(8*alpha)
 
