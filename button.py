@@ -177,12 +177,15 @@ volume_mem = 0
 while True:
     volume, muted = kodi.get_volume()
 
+    button.clear()
+
 
     if not volume == volume_mem:
-        button.percent_volume(volume, muted)
-
-        button.update()
         volume_mem = volume
+        button.percent_volume(volume, muted)
+        button.update()
+
+
 
     time.sleep(0.1)
 
