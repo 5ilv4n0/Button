@@ -84,6 +84,34 @@ class Button(dict):
         return
 
 
+    def percent_volume(self, percent, color=(255,255,255), alpha=0.5, dot=True):
+        self.clear()
+        led_count=12
+        led_start=0
+        if dot:
+            led_count=11
+            led_start=1
+            dot_color = {'red':int(255*alpha),'green':int(255*alpha),'blue':int(0*alpha)}
+            self[0] = dot_color
+
+
+        brightness = int(8*alpha)
+        percent = int( ((led_count*brightness)/100.0)*percent  )
+
+        count = 0
+        for led in range(led_start,6):
+            for i in range(brightness):
+                r = int((i*8)*(color[0]/255.0))
+                g = int((i*8)*(color[1]/255.0))
+                b = int((i*8)*(color[2]/255.0))
+                self[led] = {'red':r,'green':g,'blue':b}
+                print {'red':r,'green':g,'blue':b}
+                if count == percent:
+                    return
+                count += 1
+        return
+
+
     def pulse(self, color=(80,80,80)):
         for alpha in range(32):
             a = alpha * 8
@@ -141,7 +169,7 @@ volume_mem = 0
 while True:
     volume = kodi.get_volume()
     if not volume == volume_mem:
-        button.percent_play(volume)
+        button.percent_volume(volume)
         button.update()
         volume_mem = volume
 
