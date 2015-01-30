@@ -59,7 +59,7 @@ class Button(dict):
             if not m == s:
                 self[m] = {'red':0,'green':16,'blue':0}
 
-    def percent_play(self, percent, color=(255,255,255), alpha=0.5, dot=True):
+    def percent_play(self, percent, color=(255,255,255), alpha=0.5, dot=False):
         self.clear()
         led_count=12
         led_start=0
