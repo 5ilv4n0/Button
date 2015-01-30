@@ -189,9 +189,9 @@ while True:
 
 
 
+    print kodi.Player.isPlaying()
 
-
-    if volume == 0:
+    if volume == 0 or muted:
         button[0] = {'red':255,'green':0,'blue':0}
     button.update()
 
