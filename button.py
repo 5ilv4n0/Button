@@ -86,10 +86,10 @@ class Button(dict):
 
     def percent_volume(self, percent, color=(255,255,255), alpha=0.5, dot=True):
         self.clear()
-        led_count=6
+        led_count=7
         led_start=0
         if dot:
-            led_count=11
+            led_count=6
             led_start=1
             dot_color = {'red':int(255*alpha),'green':int(255*alpha),'blue':int(0*alpha)}
             self[0] = dot_color
