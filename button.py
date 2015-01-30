@@ -182,15 +182,21 @@ while True:
     volume, muted = kodi.get_volume()
 
     button.clear()
+    button.current_time()
+
+
     player_id = kodi.is_playing()
     if not player_id == None:
         percent = kodi.Player.GetProperties(playerid=player_id, properties=["percentage"])
         percent = percent["result"]["percentage"]
         button.percent_play(percent)
 
+
+
     if not volume == volume_mem:
         volume_mem = volume
         button.percent_volume(volume, muted)
+
     if volume == 0 or muted:
         button[0] = {'red':255,'green':0,'blue':0}
 
