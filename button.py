@@ -135,10 +135,6 @@ button.clear()
 kodi = Kodi("http://localhost:8080/jsonrpc")
 
 
-button.clear()
-button.percent(5)
-button.update()
-sys.exit()
 volume_mem = 0
 while True:
     volume = kodi.get_volume()
