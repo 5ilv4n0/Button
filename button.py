@@ -116,14 +116,21 @@ class Button(dict):
 
 
 
+class Kodi(XBMC):
+    def __init__(self, api_url):
+        self.api_url = api_url
+        XBMC.__init__(self, api_url)
+
+
+
 button = Button()
 button.clear()
 
-xbmc = XBMC("http://localhost:8080/jsonrpc")
+kodi = Kodi("http://localhost:8080/jsonrpc")
 
 #method":"Application.GetProperties","params":{"properties":["volume"]}, id": 1}
 
-print xbmc.Application.GetProperties(properties=["volume"])
+print kodi.Application.GetProperties(properties=["volume"])
 
 #print xbmc.Player.GetProperties(playerid=1, properties=["percentage"])
 
