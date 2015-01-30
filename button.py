@@ -135,7 +135,7 @@ kodi = Kodi("http://localhost:8080/jsonrpc")
 
 
 button.clear()
-button.percent(5)
+button.percent(6)
 button.update()
 sys.exit()
 volume_mem = 0
