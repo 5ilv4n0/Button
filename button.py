@@ -60,15 +60,19 @@ class Button(dict):
                 self[m] = {'red':0,'green':16,'blue':0}
 
     def percent(self, percent, color=(255,255,255)):
+        alpha = 0.5
+        brightness = int(8*alpha)
+
+        percent = int((11*brightness/100)*percent)
+
         self.clear()
         self[0] = {'red':255,'green':255,'blue':0}
-        percent = int((88.0/100)*percent)
-        print percent
 
-        alpha = 1
+
+
         count = 0
         for led in range(1,12):
-            for i in range(8):
+            for i in range(brightness):
 
                 r = int((i*8)*(color[0]/255.0))
                 g = int((i*8)*(color[1]/255.0))
