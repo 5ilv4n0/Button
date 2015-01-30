@@ -72,10 +72,10 @@ class Button(dict):
                 if count == percent:
                     return
 
-                r = int((i*8)*alpha*(color[0]/255.0))
-                g = int((i*8)*alpha*(color[1]/255.0))
-                b = int((i*8)*alpha*(color[2]/255.0))
-                #print (255/56)*r,(255/56)*g,(255/56)*b
+                r = int((i*8)*(color[0]/255.0))
+                g = int((i*8)*(color[1]/255.0))
+                b = int((i*8)*(color[2]/255.0))
+
                 self[led] = {'red':r,'green':g,'blue':b}
                 count += 1
         return
@@ -92,6 +92,7 @@ class Button(dict):
             for led in range(12):
                 self[led] = {'red':a,'green':a,'blue':a}
             button.update()
+
     def update(self):
         data = ''
         data += chr(self[1]['red'])+chr(self[1]['blue'])+chr(self[1]['green'])
