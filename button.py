@@ -173,6 +173,7 @@ kodi = Kodi("http://localhost:8080/jsonrpc")
 
 
 volume_mem = 0
+pressed_mem = False
 while True:
     volume, muted = kodi.get_volume()
 
@@ -182,11 +183,21 @@ while True:
 
     if not volume == volume_mem:
         volume_mem = volume
+        pressed = True
+        pressed_mem = True
+    else:
+        pressed = False
+
+
         button.percent_volume(volume, muted)
+        
 
 
-    if time.time() >= next_update_time:
-        button.update()
+    button.update()
+    if pressed_mem == True and pressed == False:
+        pressed_mem == False
+        time.sleep(0.5)
+
     time.sleep(0.1)
 
 
