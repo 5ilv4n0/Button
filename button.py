@@ -165,7 +165,7 @@ class Kodi(XBMC):
         try:
             out = self.Player.GetActivePlayers()
             return out['result'][0]['playerid']
-        except KeyError:
+        except IndexError:
             return False
 
 
