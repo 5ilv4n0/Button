@@ -91,7 +91,7 @@ class Button(dict):
         if dot:
             led_count=6
             led_start=1
-            dot_color = {'red':int(255*alpha),'green':int(255*alpha),'blue':int(0*alpha)}
+            dot_color = {'red':int(255*alpha),'green':int(255*alpha),'blue':int(255*alpha)}
             self[0] = dot_color
 
         real_percent = percent
