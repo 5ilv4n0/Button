@@ -63,7 +63,7 @@ class Button(dict):
         alpha = 0.5
         brightness = int(8*alpha)
         print percent,
-        percent = int((11*brightness/100)*percent)
+        percent = int(((11*brightness)/100)*percent)
         print percent
         self.clear()
         self[0] = {'red':255,'green':255,'blue':0}
