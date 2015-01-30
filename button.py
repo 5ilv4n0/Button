@@ -166,7 +166,7 @@ class Kodi(XBMC):
             out = self.Player.GetActivePlayers()
             return out['result'][0]['playerid']
         except IndexError:
-            return False
+            return None
 
 
 button = Button()
@@ -183,8 +183,7 @@ while True:
 
     button.clear()
     player_id = kodi.is_playing()
-    print player_id,
-    if not player_id == False:
+    if not player_id == None:
         percent = kodi.Player.GetProperties(playerid=player_id, properties=["percentage"])
         print percent
         button.percent_play(percent)
